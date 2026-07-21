@@ -6,7 +6,6 @@
 <title>David Scarlatescu for [Office]</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     font-family: 'Georgia', 'Times New Roman', serif;
     color: #1c1c1c;
@@ -15,45 +14,12 @@
   }
   .sans { font-family: 'Helvetica Neue', Arial, sans-serif; }
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #fdfcf9;
-    border-bottom: 1px solid #e2ddd0;
-    padding: 16px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav .brand {
-    font-weight: bold;
-    font-size: 1.1em;
-    letter-spacing: 0.5px;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-  }
-  nav a {
-    text-decoration: none;
-    color: #1c1c1c;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.9em;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
-  }
-  nav a:hover { color: #a3312a; }
-
-  /* HERO with diagonal cut */
+  /* HERO with subtle angle */
   header {
     position: relative;
     background: #1a2e4a;
     color: white;
-    padding: 90px 20px 140px;
+    padding: 80px 20px 100px;
     text-align: center;
     overflow: hidden;
   }
@@ -63,20 +29,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 24px;
     background: #fdfcf9;
-    clip-path: polygon(0 100%, 100% 40%, 100% 100%);
-  }
-  .portrait {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    background: #24406b;
-    border: 3px solid #a3312a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    clip-path: polygon(0 100%, 100% 70%, 100% 100%);
   }
   header h1 {
     font-size: 2.8em;
@@ -109,7 +64,7 @@
   section {
     max-width: 780px;
     margin: 0 auto;
-    padding: 70px 25px;
+    padding: 60px 25px;
   }
   .section-label {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -126,6 +81,48 @@
     color: #1a2e4a;
   }
 
+  /* Placeholder image box */
+  .img-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #f0ece1;
+    border: 2px dashed #c9c1ac;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8a8272;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.85em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .img-placeholder.round {
+    width: 160px;
+    height: 160px;
+    aspect-ratio: unset;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+  }
+  .img-placeholder svg { margin-bottom: 8px; opacity: 0.5; }
+
+  .about-layout {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+  }
+  .about-layout .img-placeholder {
+    width: 220px;
+    aspect-ratio: 3/4;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+  @media (max-width: 600px) {
+    .about-layout { flex-direction: column; }
+    .about-layout .img-placeholder { width: 100%; aspect-ratio: 16/9; }
+  }
+
   .issue {
     display: flex;
     gap: 20px;
@@ -133,16 +130,8 @@
     margin-bottom: 28px;
     padding-bottom: 28px;
     border-bottom: 1px solid #e2ddd0;
-    opacity: 0;
-    transform: translateY(15px);
-    animation: fadeUp 0.6s ease forwards;
   }
-  .issue:nth-child(2) { animation-delay: 0.1s; }
-  .issue:nth-child(3) { animation-delay: 0.2s; }
   .issue:last-child { border-bottom: none; }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
   .issue-icon {
     flex-shrink: 0;
     width: 48px;
@@ -182,22 +171,7 @@
 </head>
 <body>
 
-<nav>
-  <div class="brand">SCARLATESCU</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#issues">Issues</a></li>
-    <li><a href="#contact">Get Involved</a></li>
-  </ul>
-</nav>
-
 <header>
-  <div class="portrait">
-    <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-      <circle cx="12" cy="8" r="4"/>
-      <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
-    </svg>
-  </div>
   <h1>David Scarlatescu</h1>
   <p class="tagline">Candidate for [Office/Race] — [City/District], [Year]</p>
   <a href="#contact" class="cta">Get Involved</a>
@@ -206,9 +180,19 @@
 <section id="about">
   <div class="section-label">The Candidate</div>
   <h2>About David</h2>
-  <p>
-    [Placeholder bio: David Scarlatescu is a lifelong resident of [City] with a background in [profession/experience]. He's running for [office] because he believes [core motivation/values]. This is where you'll add real details about his story, work, and community involvement.]
-  </p>
+  <div class="about-layout">
+    <div class="img-placeholder">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8a8272" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="9" cy="9" r="2"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+      Add David's photo here
+    </div>
+    <p>
+      [Placeholder bio: David Scarlatescu is a lifelong resident of [City] with a background in [profession/experience]. He's running for [office] because he believes [core motivation/values]. This is where you'll add real details about his story, work, and community involvement.]
+    </p>
+  </div>
 </section>
 
 <section id="issues">
@@ -249,6 +233,15 @@
       <h3>[Issue 3 — e.g. Local Jobs & Economy]</h3>
       <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
     </div>
+  </div>
+
+  <div class="img-placeholder" style="margin-top:10px;">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8a8272" stroke-width="1.5">
+      <rect x="3" y="3" width="18" height="18" rx="2"/>
+      <circle cx="9" cy="9" r="2"/>
+      <path d="M21 15l-5-5L5 21"/>
+    </svg>
+    Add a photo of David out in the community
   </div>
 </section>
 
