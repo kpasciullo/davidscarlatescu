@@ -6,95 +6,261 @@
 <title>David Scarlatescu for [Office]</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #222;
-    line-height: 1.6;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #1c1c1c;
+    line-height: 1.7;
+    background: #fdfcf9;
   }
+  .sans { font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fdfcf9;
+    border-bottom: 1px solid #e2ddd0;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .brand {
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #a3312a; }
+
+  /* HERO with diagonal cut */
   header {
-    background: #1a3c6e;
+    position: relative;
+    background: #1a2e4a;
     color: white;
+    padding: 90px 20px 140px;
     text-align: center;
-    padding: 60px 20px;
+    overflow: hidden;
   }
-  header h1 { font-size: 2.5em; margin-bottom: 10px; }
-  header p { font-size: 1.2em; opacity: 0.9; }
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #fdfcf9;
+    clip-path: polygon(0 100%, 100% 40%, 100% 100%);
+  }
+  .portrait {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #24406b;
+    border: 3px solid #a3312a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header h1 {
+    font-size: 2.8em;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  header p.tagline {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.15em;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+  }
   .cta {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 30px;
-    background: #d62828;
+    margin-top: 30px;
+    padding: 14px 36px;
+    background: #a3312a;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 2px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: background 0.2s;
   }
+  .cta:hover { background: #832722; }
+
   section {
-    max-width: 800px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 70px 25px;
+  }
+  .section-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a3312a;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
   h2 {
-    color: #1a3c6e;
-    border-bottom: 2px solid #d62828;
-    display: inline-block;
-    margin-bottom: 20px;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #1a2e4a;
   }
+
   .issue {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #f4f4f4;
-    border-radius: 6px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e2ddd0;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeUp 0.6s ease forwards;
   }
-  .issue h3 { color: #1a3c6e; margin-bottom: 5px; }
+  .issue:nth-child(2) { animation-delay: 0.1s; }
+  .issue:nth-child(3) { animation-delay: 0.2s; }
+  .issue:last-child { border-bottom: none; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .issue-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f0ece1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .issue h3 {
+    font-size: 1.2em;
+    color: #1a2e4a;
+    margin-bottom: 6px;
+  }
+  .issue p { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.95em; color: #444; }
+
+  #contact {
+    background: #f0ece1;
+  }
+  #contact .details {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-top: 20px;
+    font-size: 0.95em;
+  }
+  #contact .details p { margin-bottom: 6px; }
+
   footer {
-    background: #222;
-    color: #ccc;
+    background: #1a2e4a;
+    color: #b8c2d1;
     text-align: center;
-    padding: 25px;
-    font-size: 0.9em;
+    padding: 30px 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.85em;
   }
 </style>
 </head>
 <body>
 
+<nav>
+  <div class="brand">SCARLATESCU</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#issues">Issues</a></li>
+    <li><a href="#contact">Get Involved</a></li>
+  </ul>
+</nav>
+
 <header>
+  <div class="portrait">
+    <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+    </svg>
+  </div>
   <h1>David Scarlatescu</h1>
-  <p>Candidate for [Office/Race] — [City/District], [Year]</p>
+  <p class="tagline">Candidate for [Office/Race] — [City/District], [Year]</p>
   <a href="#contact" class="cta">Get Involved</a>
 </header>
 
-<section>
+<section id="about">
+  <div class="section-label">The Candidate</div>
   <h2>About David</h2>
   <p>
     [Placeholder bio: David Scarlatescu is a lifelong resident of [City] with a background in [profession/experience]. He's running for [office] because he believes [core motivation/values]. This is where you'll add real details about his story, work, and community involvement.]
   </p>
 </section>
 
-<section>
+<section id="issues">
+  <div class="section-label">The Platform</div>
   <h2>Key Issues</h2>
+
   <div class="issue">
-    <h3>[Issue 1 — e.g. Affordable Housing]</h3>
-    <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    <div class="issue-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
+        <path d="M3 11L12 3l9 8"/><path d="M5 10v10h14V10"/>
+      </svg>
+    </div>
+    <div>
+      <h3>[Issue 1 — e.g. Affordable Housing]</h3>
+      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    </div>
   </div>
+
   <div class="issue">
-    <h3>[Issue 2 — e.g. Public Safety]</h3>
-    <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    <div class="issue-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
+        <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/>
+      </svg>
+    </div>
+    <div>
+      <h3>[Issue 2 — e.g. Public Safety]</h3>
+      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    </div>
   </div>
+
   <div class="issue">
-    <h3>[Issue 3 — e.g. Local Jobs & Economy]</h3>
-    <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    <div class="issue-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
+        <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+      </svg>
+    </div>
+    <div>
+      <h3>[Issue 3 — e.g. Local Jobs & Economy]</h3>
+      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
+    </div>
   </div>
 </section>
 
 <section id="contact">
+  <div class="section-label">Take Action</div>
   <h2>Get Involved</h2>
   <p>Want to volunteer, donate, or just stay updated? Reach out below.</p>
-  <p style="margin-top:15px;">
-    Email: [email@example.com]<br>
-    Phone: [Optional]<br>
-    Social: [Optional links]
-  </p>
+  <div class="details">
+    <p>Email: [email@example.com]</p>
+    <p>Phone: [Optional]</p>
+    <p>Social: [Optional links]</p>
+  </div>
 </section>
 
 <footer>
