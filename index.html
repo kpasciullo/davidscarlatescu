@@ -235,7 +235,22 @@
 
   /* ---------- Generic section spacing ---------- */
   section {
-    padding: var(--space-6) 0;
+    padding: var(--space-5) 0;
+  }
+  @media (min-width: 860px) {
+    section {
+      padding: var(--space-6) 0;
+    }
+  }
+
+  /* Subtle divider between sections (a short centered rule). */
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--purple);
+    border: none;
+    margin: 0 auto;
+    opacity: 0.35;
   }
 
   .section-title {
@@ -537,6 +552,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Subtle divider between About and Platform. Delete this line to remove it. -->
+  <hr class="section-divider">
 
   <!-- ============================================================
        3. PLATFORM
