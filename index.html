@@ -250,6 +250,24 @@
     text-align: center;
   }
 
+  /* About and Platform are both on white, so their stacked padding reads as
+     one large empty gap. Trim the boundary between them so it matches the
+     visual spacing of the color-backed sections. */
+  #about {
+    padding-bottom: var(--space-2);
+  }
+  #platform {
+    padding-top: var(--space-2);
+  }
+  @media (min-width: 860px) {
+    #about {
+      padding-bottom: var(--space-3);
+    }
+    #platform {
+      padding-top: var(--space-3);
+    }
+  }
+
   /* ---------- About ---------- */
   .about-body {
     max-width: 65ch;
@@ -436,7 +454,12 @@
     font-size: 0.85rem;
     color: rgba(255,255,255,0.8);
     text-align: center;
-    margin-top: var(--space-3);
+    margin-top: var(--space-5);
+  }
+  @media (min-width: 860px) {
+    .involved-note {
+      margin-top: var(--space-6);
+    }
   }
   .involved-note a { text-decoration: underline; }
 
