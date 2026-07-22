@@ -3,261 +3,534 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Scarlatescu for [Office]</title>
+
+<!-- ============================================================
+     PAGE TITLE & META DESCRIPTION — replace bracketed copy as needed
+     ============================================================ -->
+<title>David Scarlatescu for Vernon City Council | Vote October 17, 2026</title>
+<meta name="description" content="David Scarlatescu is running for Vernon City Council. Vote October 17, 2026. Learn about his platform for a stronger, smarter, more accessible Vernon.">
+
+<!-- ============================================================
+     OPEN GRAPH TAGS — controls how the link looks when shared on
+     Facebook/Instagram/etc. Replace og:url and og:image below.
+     ============================================================ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Scarlatescu for Vernon City Council">
+<meta property="og:description" content="Vote October 17, 2026. A stronger, smarter, more accessible Vernon.">
+<!-- REPLACE: absolute URL to a 1200x630px share image (JPG/PNG), hosted on your final domain -->
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN/og-image.jpg">
+<!-- REPLACE: final live URL of this page -->
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN/">
+<meta property="og:locale" content="en_CA">
+
+<!-- ============================================================
+     FAVICON — add a favicon.ico (or .png) file to your site root.
+     Recommended: 32x32 and 180x180 (apple-touch-icon) versions.
+     FILE TO ADD: /favicon.ico  (and optionally /apple-touch-icon.png)
+     ============================================================ -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<!-- Optional, uncomment if you add an apple touch icon file: -->
+<!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --purple: #4A2C6F;
+    --white: #FFFFFF;
+    --purple-tint: #F4F0F8; /* very light purple-white for section alternation, still reads as "white" */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2.5rem;
+    --space-5: 4rem;
+    --space-6: 6rem;
+    --max-width: 1100px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
   body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    color: #1c1c1c;
-    line-height: 1.7;
-    background: #fdfcf9;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--purple);
+    background: var(--white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
-  .sans { font-family: 'Helvetica Neue', Arial, sans-serif; }
 
-  /* HERO with subtle angle */
-  header {
-    position: relative;
-    background: #1a2e4a;
-    color: white;
-    padding: 80px 20px 100px;
-    text-align: center;
-    overflow: hidden;
-  }
-  header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 24px;
-    background: #fdfcf9;
-    clip-path: polygon(0 100%, 100% 70%, 100% 100%);
-  }
-  header h1 {
-    font-size: 2.8em;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-  }
-  header p.tagline {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1.15em;
-    opacity: 0.85;
-    letter-spacing: 0.5px;
-  }
-  .cta {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 14px 36px;
-    background: #a3312a;
-    color: white;
-    text-decoration: none;
-    border-radius: 2px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    transition: background 0.2s;
-  }
-  .cta:hover { background: #832722; }
+  img { max-width: 100%; display: block; }
 
-  section {
-    max-width: 780px;
+  a { color: inherit; }
+
+  .container {
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 60px 25px;
-  }
-  .section-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.8em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #a3312a;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  h2 {
-    font-size: 2em;
-    margin-bottom: 25px;
-    color: #1a2e4a;
+    padding: 0 var(--space-3);
   }
 
-  /* Placeholder image box */
-  .img-placeholder {
+  /* ---------- Skip link (accessibility) ---------- */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--white);
+    color: var(--purple);
+    padding: var(--space-2);
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: var(--space-2);
+    top: var(--space-2);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--purple);
+    color: var(--white);
+    padding: var(--space-5) 0 var(--space-6);
+    text-align: center;
+  }
+
+  /*
+    CANDIDATE PHOTO PLACEHOLDER
+    Replace this div with a real <img> tag, e.g.:
+    <img src="/images/david-hero.jpg" alt="David Scarlatescu smiling, standing in downtown Vernon">
+    Recommended source dimensions: 1600x1000px (16:10), optimized/compressed JPG under 200KB for slow connections.
+  */
+  .hero-photo-placeholder {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #f0ece1;
-    border: 2px dashed #c9c1ac;
-    border-radius: 4px;
+    max-width: 640px;
+    height: 400px;
+    margin: 0 auto var(--space-4);
+    background: rgba(255,255,255,0.12);
+    border: 2px dashed rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: var(--space-2);
+  }
+
+  .name-treatment {
+    margin: 0;
+    line-height: 0.95;
+  }
+  .name-first {
+    display: block;
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .name-last {
+    display: block;
+    font-size: clamp(1.1rem, 4vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    margin-top: var(--space-2);
+    padding-left: 0.3em; /* optical correction for tracking */
+  }
+
+  .hero-office {
+    margin-top: var(--space-3);
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  .hero-date {
+    margin-top: var(--space-1);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .hero-tagline {
+    max-width: 42ch;
+    margin: var(--space-3) auto 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: var(--space-4);
+    background: var(--white);
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.9em 2em;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    border: 2px solid var(--white);
+  }
+  .btn:hover, .btn:focus {
+    background: transparent;
+    color: var(--white);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--purple);
+    border: 2px solid var(--purple);
+  }
+  .btn-secondary:hover, .btn-secondary:focus {
+    background: var(--purple);
+    color: var(--white);
+  }
+
+  /* ---------- Generic section spacing ---------- */
+  section {
+    padding: var(--space-6) 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    margin: 0 0 var(--space-4);
+    text-align: center;
+  }
+
+  /* ---------- About ---------- */
+  .about-body {
+    max-width: 65ch;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Platform cards ---------- */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 640px) {
+    .platform-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .platform-card {
+    border: 2px solid var(--purple);
+    border-radius: 12px;
+    padding: var(--space-3);
+  }
+
+  .platform-card h3 {
+    margin: 0 0 var(--space-1);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .platform-card p {
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Community record ---------- */
+  .record-section {
+    background: var(--purple-tint);
+  }
+
+  .record-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 65ch;
+  }
+
+  .record-list li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid rgba(74,44,111,0.2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+  .record-list li:last-child { border-bottom: none; }
+
+  .record-role {
+    font-weight: 700;
+  }
+  .record-years {
+    color: rgba(74,44,111,0.75);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Email signup ---------- */
+  .signup-section {
+    background: var(--purple);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .signup-copy {
+    max-width: 45ch;
+    margin: 0 auto var(--space-4);
+    font-size: 1.05rem;
+  }
+
+  .signup-form {
+    max-width: 480px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #8a8272;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.85em;
-    margin-bottom: 30px;
+    gap: var(--space-2);
+  }
+
+  .signup-form label {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .signup-form input[type="email"] {
+    width: 100%;
+    padding: 0.9em 1em;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    color: var(--purple);
+  }
+
+  .signup-form button {
+    background: var(--white);
+    color: var(--purple);
+    font-weight: 700;
+    border: 2px solid var(--white);
+    border-radius: 999px;
+    padding: 0.9em 2em;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+  .signup-form button:hover,
+  .signup-form button:focus {
+    background: transparent;
+    color: var(--white);
+  }
+
+  .signup-note {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: var(--space-2);
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    background: var(--white);
+    color: var(--purple);
+    padding: var(--space-5) 0 var(--space-4);
     text-align: center;
-  }
-  .img-placeholder.round {
-    width: 160px;
-    height: 160px;
-    aspect-ratio: unset;
-    border-radius: 50%;
-    margin: 0 auto 30px;
-  }
-  .img-placeholder svg { margin-bottom: 8px; opacity: 0.5; }
-
-  .about-layout {
-    display: flex;
-    gap: 35px;
-    align-items: flex-start;
-  }
-  .about-layout .img-placeholder {
-    width: 220px;
-    aspect-ratio: 3/4;
-    flex-shrink: 0;
-    margin-bottom: 0;
-  }
-  @media (max-width: 600px) {
-    .about-layout { flex-direction: column; }
-    .about-layout .img-placeholder { width: 100%; aspect-ratio: 16/9; }
+    border-top: 3px solid var(--purple);
   }
 
-  .issue {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 28px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid #e2ddd0;
+  .footer-contact {
+    font-weight: 600;
+    margin: 0 0 var(--space-2);
   }
-  .issue:last-child { border-bottom: none; }
-  .issue-icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #f0ece1;
+  .footer-contact a { text-decoration: underline; }
+
+  .footer-social {
+    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: var(--space-3);
+    padding: 0;
+    margin: 0 0 var(--space-4);
   }
-  .issue h3 {
-    font-size: 1.2em;
-    color: #1a2e4a;
-    margin-bottom: 6px;
+  .footer-social a {
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--purple);
   }
-  .issue p { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.95em; color: #444; }
 
-  #contact {
-    background: #f0ece1;
+  .footer-authorization {
+    font-size: 0.8rem;
+    color: rgba(74,44,111,0.75);
+    max-width: 50ch;
+    margin: 0 auto;
   }
-  #contact .details {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin-top: 20px;
-    font-size: 0.95em;
-  }
-  #contact .details p { margin-bottom: 6px; }
 
-  footer {
-    background: #1a2e4a;
-    color: #b8c2d1;
-    text-align: center;
-    padding: 30px 20px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.85em;
+  /* ---------- Visually hidden utility (for extra a11y text if needed) ---------- */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>David Scarlatescu</h1>
-  <p class="tagline">Candidate for [Office/Race] — [City/District], [Year]</p>
-  <a href="#contact" class="cta">Get Involved</a>
-</header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-<section id="about">
-  <div class="section-label">The Candidate</div>
-  <h2>About David</h2>
-  <div class="about-layout">
-    <div class="img-placeholder">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8a8272" stroke-width="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <circle cx="9" cy="9" r="2"/>
-        <path d="M21 15l-5-5L5 21"/>
-      </svg>
-      Add David's photo here
+<main id="main-content">
+
+  <!-- ============================================================
+       1. HERO
+       ============================================================ -->
+  <section class="hero" id="top">
+    <div class="container">
+
+      <!-- REPLACE: swap this placeholder div for a real <img> of David.
+           Suggested source size: 1600x1000px, compressed JPG. -->
+      <div class="hero-photo-placeholder" role="img" aria-label="Placeholder for candidate photo of David Scarlatescu">
+        <!-- PHOTO PLACEHOLDER: 1600x1000px recommended, replace with <img src="..." alt="David Scarlatescu, candidate for Vernon City Council"> -->
+        [ Candidate photo — 1600x1000px ]
+      </div>
+
+      <h1 class="name-treatment">
+        <span class="name-first">DAVID</span>
+        <span class="name-last">SCARLATESCU</span>
+      </h1>
+
+      <p class="hero-office">For Vernon City Council</p>
+      <p class="hero-date">Vote October 17, 2026</p>
+
+      <!-- REPLACE: one-line tagline -->
+      <p class="hero-tagline"><!-- TAGLINE HERE --> A steady hand and a clear voice for the Vernon we're building together.</p>
+
+      <a class="btn" href="#signup">Join the campaign</a>
     </div>
-    <p>
-      [Placeholder bio: David Scarlatescu is a lifelong resident of [City] with a background in [profession/experience]. He's running for [office] because he believes [core motivation/values]. This is where you'll add real details about his story, work, and community involvement.]
-    </p>
+  </section>
+
+  <!-- ============================================================
+       2. ABOUT
+       ============================================================ -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About David</h2>
+      <div class="about-body">
+        <!-- BIO TEXT HERE -->
+        <p>
+          [Placeholder ~150-word biography. Introduce David Scarlatescu: where he
+          grew up or how long he's lived in Vernon, his professional background,
+          family, and what first drew him to local politics. Mention any relevant
+          community leadership, small business experience, or civic involvement.
+          Close with why he's running now and what kind of council member he
+          intends to be — practical, accessible, and focused on the everyday
+          issues that matter to Vernon residents: housing, local business,
+          youth opportunity, and smart, sustainable growth.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. PLATFORM
+       ============================================================ -->
+  <section id="platform">
+    <div class="container">
+      <h2 class="section-title">Platform</h2>
+      <div class="platform-grid">
+
+        <article class="platform-card">
+          <h3>Local Economy &amp; Small Business</h3>
+          <!-- PLATFORM COPY HERE: Local Economy & Small Business -->
+          <p>[Placeholder paragraph on supporting small business growth, reducing red tape, and keeping Vernon's downtown vibrant.]</p>
+        </article>
+
+        <article class="platform-card">
+          <h3>Youth &amp; Next-Generation Vernon</h3>
+          <!-- PLATFORM COPY HERE: Youth & Next-Generation Vernon -->
+          <p>[Placeholder paragraph on youth programs, recreation access, and keeping young people and young families in Vernon.]</p>
+        </article>
+
+        <article class="platform-card">
+          <h3>Smart Growth</h3>
+          <!-- PLATFORM COPY HERE: Smart Growth -->
+          <p>[Placeholder paragraph on responsible development, housing supply, and infrastructure that keeps pace with growth.]</p>
+        </article>
+
+        <article class="platform-card">
+          <h3>Service to Community</h3>
+          <!-- PLATFORM COPY HERE: Service to Community -->
+          <p>[Placeholder paragraph on public safety, community services, and supporting Vernon's non-profits and volunteers.]</p>
+        </article>
+
+        <article class="platform-card">
+          <h3>Accessible Representation</h3>
+          <!-- PLATFORM COPY HERE: Accessible Representation -->
+          <p>[Placeholder paragraph on open office hours, transparent decision-making, and being reachable to every resident.]</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. COMMUNITY RECORD
+       ============================================================ -->
+  <section id="record" class="record-section">
+    <div class="container">
+      <h2 class="section-title">Community Record</h2>
+      <ul class="record-list">
+        <!-- REPLACE each <li> below with a verified, real community involvement item -->
+        <li>
+          <!-- COMMUNITY RECORD ITEM HERE -->
+          <span class="record-role">[Volunteer role, Organization Name]</span>
+          <span class="record-years">[Year–Year]</span>
+        </li>
+        <li>
+          <!-- COMMUNITY RECORD ITEM HERE -->
+          <span class="record-role">[Board member, Organization Name]</span>
+          <span class="record-years">[Year–Year]</span>
+        </li>
+        <li>
+          <!-- COMMUNITY RECORD ITEM HERE -->
+          <span class="record-role">[Coach/Organizer, Organization Name]</span>
+          <span class="record-years">[Year–Year]</span>
+        </li>
+        <li>
+          <!-- COMMUNITY RECORD ITEM HERE -->
+          <span class="record-role">[Committee member, Organization Name]</span>
+          <span class="record-years">[Year–Year]</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. EMAIL SIGNUP
+       ============================================================ -->
+  <section id="signup" class="signup-section">
+    <div class="container">
+      <h2 class="section-title">Stay in the loop</h2>
+      <p class="signup-copy">Get campaign updates, event invites, and ways to help — straight to your inbox.</p>
+
+      <!-- REPLACE FORMSPREE_ID with your real Formspree form ID, e.g. https://formspree.io/f/abcdwxyz -->
+      <form class="signup-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">Sign up</button>
+      </form>
+
+      <p class="signup-note">We'll never share your email. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     6. FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <!-- REPLACE with real campaign contact email -->
+    <p class="footer-contact"><a href="mailto:info@REPLACE-DOMAIN.ca">info@REPLACE-DOMAIN.ca</a></p>
+
+    <ul class="footer-social">
+      <!-- REPLACE href values with real social URLs -->
+      <li><a href="https://instagram.com/REPLACE_HANDLE" rel="noopener" target="_blank">Instagram</a></li>
+      <li><a href="https://facebook.com/REPLACE_HANDLE" rel="noopener" target="_blank">Facebook</a></li>
+      <li><a href="https://youtube.com/@REPLACE_HANDLE" rel="noopener" target="_blank">YouTube</a></li>
+    </ul>
+
+    <!-- REPLACE [FINANCIAL AGENT NAME] with the real financial agent's name. Text must remain exactly as required by BC election law otherwise. -->
+    <p class="footer-authorization">Authorized by [FINANCIAL AGENT NAME], financial agent.</p>
   </div>
-</section>
-
-<section id="issues">
-  <div class="section-label">The Platform</div>
-  <h2>Key Issues</h2>
-
-  <div class="issue">
-    <div class="issue-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
-        <path d="M3 11L12 3l9 8"/><path d="M5 10v10h14V10"/>
-      </svg>
-    </div>
-    <div>
-      <h3>[Issue 1 — e.g. Affordable Housing]</h3>
-      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
-    </div>
-  </div>
-
-  <div class="issue">
-    <div class="issue-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
-        <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/>
-      </svg>
-    </div>
-    <div>
-      <h3>[Issue 2 — e.g. Public Safety]</h3>
-      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
-    </div>
-  </div>
-
-  <div class="issue">
-    <div class="issue-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a3312a" stroke-width="1.8">
-        <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
-      </svg>
-    </div>
-    <div>
-      <h3>[Issue 3 — e.g. Local Jobs & Economy]</h3>
-      <p>[Placeholder: A sentence or two about David's position and plan on this issue.]</p>
-    </div>
-  </div>
-
-  <div class="img-placeholder" style="margin-top:10px;">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8a8272" stroke-width="1.5">
-      <rect x="3" y="3" width="18" height="18" rx="2"/>
-      <circle cx="9" cy="9" r="2"/>
-      <path d="M21 15l-5-5L5 21"/>
-    </svg>
-    Add a photo of David out in the community
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-label">Take Action</div>
-  <h2>Get Involved</h2>
-  <p>Want to volunteer, donate, or just stay updated? Reach out below.</p>
-  <div class="details">
-    <p>Email: [email@example.com]</p>
-    <p>Phone: [Optional]</p>
-    <p>Social: [Optional links]</p>
-  </div>
-</section>
-
-<footer>
-  Paid for by [Committee Name / David Scarlatescu for Office]. [Address if legally required in your jurisdiction.]
 </footer>
 
 </body>
