@@ -115,7 +115,8 @@
       gap: var(--space-5);
       text-align: left;
     }
-    .hero-photo-placeholder {
+    .hero-photo-placeholder,
+    .hero-photo {
       flex: 0 0 45%;
       max-width: 45%;
       margin: 0;
@@ -133,11 +134,18 @@
     }
   }
 
+  /* Real candidate photo. Rounded corners to match the card styling. */
+  .hero-photo {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto var(--space-4);
+    border-radius: 12px;
+    height: auto;
+  }
+
   /*
-    CANDIDATE PHOTO PLACEHOLDER
-    Replace this div with a real <img> tag, e.g.:
-    <img src="/images/david-hero.jpg" alt="David Scarlatescu smiling, standing in downtown Vernon">
-    Recommended source dimensions: 1600x1000px (16:10), optimized/compressed JPG under 200KB for slow connections.
+    CANDIDATE PHOTO PLACEHOLDER (unused once the real <img> is in place)
+    Recommended source dimensions: 1600x1000px (16:10), optimized/compressed JPG or PNG for slow connections.
   */
   .hero-photo-placeholder {
     width: 100%;
@@ -479,12 +487,9 @@
     <div class="container">
       <div class="hero-inner">
 
-        <!-- REPLACE: swap this placeholder div for a real <img> of David.
-             On desktop this sits on the LEFT. Suggested source size: 1600x1000px, compressed JPG. -->
-        <div class="hero-photo-placeholder" role="img" aria-label="Placeholder for candidate photo of David Scarlatescu">
-          <!-- PHOTO PLACEHOLDER: 1600x1000px recommended, replace with <img src="..." alt="David Scarlatescu, candidate for Vernon City Council"> -->
-          [ Candidate photo — 1600x1000px ]
-        </div>
+        <!-- Candidate photo. File lives at the repo root as david-hero.png.
+             If you change the filename or move it into a folder, update the src below. -->
+        <img class="hero-photo" src="/david-hero.png" alt="David Scarlatescu, candidate for Vernon City Council">
 
         <div class="hero-text">
           <h1 class="name-treatment">
