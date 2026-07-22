@@ -103,6 +103,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   .hero-text {
     width: 100%;
@@ -112,17 +113,19 @@
     .hero-inner {
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       gap: var(--space-5);
       text-align: left;
     }
-    .hero-photo-placeholder,
-    .hero-photo {
-      flex: 0 0 45%;
-      max-width: 45%;
+    .hero-inner .hero-photo-placeholder,
+    .hero-inner .hero-photo {
+      flex: 0 1 440px;
+      width: 440px;
+      max-width: 440px;
       margin: 0;
     }
     .hero-text {
-      flex: 1;
+      flex: 0 1 440px;
     }
     /* Left-align the text-block elements that were centered on mobile */
     .hero-text .hero-tagline {
@@ -487,8 +490,9 @@
     <div class="container">
       <div class="hero-inner">
 
-        <!-- Candidate photo. File lives at the repo root as david-hero.png.
-             If you change the filename or move it into a folder, update the src below. -->
+        <!-- Candidate photo. File lives in the same folder as index.html (david-hero.png).
+             Relative path (no leading slash) works on the custom domain, GitHub project URLs, and previews.
+             If you move it into a folder, update the src (e.g. images/david-hero.png). -->
         <img class="hero-photo" src="david-hero.png" alt="David Scarlatescu, candidate for Vernon City Council">
 
         <div class="hero-text">
