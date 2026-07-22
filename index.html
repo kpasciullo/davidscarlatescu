@@ -62,30 +62,6 @@
 
   a { color: inherit; }
 
-  /* ---------- Scroll reveal (CSS-only, no JavaScript) ----------
-     Sections fade + slide up as they scroll into view using the
-     modern `animation-timeline: view()` feature. Browsers that don't
-     support it simply show content normally (see @supports fallback),
-     so nothing breaks on older devices or slow connections. */
-  @keyframes reveal {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: reveal linear both;
-      animation-timeline: view();
-      /* Start when the element is entering, finish once it's ~35% up the viewport */
-      animation-range: entry 0% cover 35%;
-    }
-  }
-
-  /* Respect users who prefer reduced motion: no animation at all. */
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { animation: none; opacity: 1; transform: none; }
-  }
-
   .container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -111,8 +87,15 @@
   .hero {
     background: var(--purple);
     color: var(--white);
-    padding: var(--space-5) 0 var(--space-6);
+    min-height: 100vh;
+    min-height: 100svh; /* accounts for mobile browser UI bars */
+    display: flex;
+    align-items: center;
+    padding: var(--space-5) 0;
     text-align: center;
+  }
+  .hero > .container {
+    width: 100%;
   }
 
   /* Mobile: stacked & centered (default).
@@ -127,9 +110,6 @@
   }
 
   @media (min-width: 860px) {
-    .hero {
-      padding: var(--space-5) 0;
-    }
     .hero-inner {
       flex-direction: row;
       align-items: center;
@@ -468,7 +448,7 @@
        2. ABOUT
        ============================================================ -->
   <section id="about">
-    <div class="container reveal">
+    <div class="container">
       <h2 class="section-title">About David</h2>
       <div class="about-body">
         <!-- BIO TEXT HERE -->
@@ -491,34 +471,34 @@
        ============================================================ -->
   <section id="platform">
     <div class="container">
-      <h2 class="section-title reveal">Platform</h2>
+      <h2 class="section-title">Platform</h2>
       <div class="platform-grid">
 
-        <article class="platform-card reveal">
+        <article class="platform-card">
           <h3>Local Economy &amp; Small Business</h3>
           <!-- PLATFORM COPY HERE: Local Economy & Small Business -->
           <p>[Placeholder paragraph on supporting small business growth, reducing red tape, and keeping Vernon's downtown vibrant.]</p>
         </article>
 
-        <article class="platform-card reveal">
+        <article class="platform-card">
           <h3>Youth &amp; Next-Generation Vernon</h3>
           <!-- PLATFORM COPY HERE: Youth & Next-Generation Vernon -->
           <p>[Placeholder paragraph on youth programs, recreation access, and keeping young people and young families in Vernon.]</p>
         </article>
 
-        <article class="platform-card reveal">
+        <article class="platform-card">
           <h3>Smart Growth</h3>
           <!-- PLATFORM COPY HERE: Smart Growth -->
           <p>[Placeholder paragraph on responsible development, housing supply, and infrastructure that keeps pace with growth.]</p>
         </article>
 
-        <article class="platform-card reveal">
+        <article class="platform-card">
           <h3>Service to Community</h3>
           <!-- PLATFORM COPY HERE: Service to Community -->
           <p>[Placeholder paragraph on public safety, community services, and supporting Vernon's non-profits and volunteers.]</p>
         </article>
 
-        <article class="platform-card reveal">
+        <article class="platform-card">
           <h3>Accessible Representation</h3>
           <!-- PLATFORM COPY HERE: Accessible Representation -->
           <p>[Placeholder paragraph on open office hours, transparent decision-making, and being reachable to every resident.]</p>
@@ -532,7 +512,7 @@
        4. COMMUNITY RECORD
        ============================================================ -->
   <section id="record" class="record-section">
-    <div class="container reveal">
+    <div class="container">
       <h2 class="section-title">Community Record</h2>
       <ul class="record-list">
         <!-- REPLACE each <li> below with a verified, real community involvement item -->
@@ -564,7 +544,7 @@
        5. EMAIL SIGNUP
        ============================================================ -->
   <section id="signup" class="signup-section">
-    <div class="container reveal">
+    <div class="container">
       <h2 class="section-title">Stay in the loop</h2>
       <p class="signup-copy">Get campaign updates, event invites, and ways to help — straight to your inbox.</p>
 
