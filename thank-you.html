@@ -1,1 +1,126 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Not indexed by search engines — this page is only reached after signing up. -->
+<meta name="robots" content="noindex">
+
+<title>Thank you | David Scarlatescu for Vernon City Council</title>
+<meta name="description" content="Thanks for signing up to David Scarlatescu's campaign for Vernon City Council.">
+
+<!-- FAVICON — same file as index.html. Add /favicon.ico to your site root. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+<style>
+  :root {
+    --purple: #4A2C6F;
+    --white: #FFFFFF;
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2.5rem;
+    --space-5: 4rem;
+    --max-width: 1100px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--white);
+    background: var(--purple);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .thanks {
+    max-width: 42ch;
+  }
+
+  /* Name treatment — matches the hero on index.html */
+  .name-treatment {
+    margin: 0 0 var(--space-4);
+    line-height: 0.95;
+  }
+  .name-first {
+    display: block;
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .name-last {
+    display: block;
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    margin-top: var(--space-2);
+    padding-left: 0.3em; /* optical correction for tracking */
+  }
+
+  .thanks-heading {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 800;
+    margin: 0 0 var(--space-2);
+  }
+
+  .thanks-copy {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.92);
+    margin: 0 0 var(--space-4);
+  }
+
+  .thanks-date {
+    font-weight: 700;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.9em 2em;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    border: 2px solid var(--white);
+  }
+  .btn:hover, .btn:focus {
+    background: transparent;
+    color: var(--white);
+  }
+</style>
+</head>
+<body>
+
+  <main class="thanks">
+    <p class="name-treatment">
+      <span class="name-first">DAVID</span>
+      <span class="name-last">SCARLATESCU</span>
+    </p>
+
+    <h1 class="thanks-heading">You're in. Thank you.</h1>
+
+    <p class="thanks-copy">
+      You'll hear from the campaign with updates, events, and ways to help.
+      Mark your calendar: <span class="thanks-date">Vote October 17, 2026.</span>
+    </p>
+
+    <!-- REPLACE href with your live domain root, or leave as "/" if this
+         page sits at your site root alongside index.html. -->
+    <a class="btn" href="/">Back to the campaign</a>
+  </main>
+
+</body>
+</html>
