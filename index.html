@@ -282,6 +282,13 @@
     max-width: 65ch;
   }
 
+  /* Desktop: give the record more width so long entries fit on one line. */
+  @media (min-width: 860px) {
+    .record-list {
+      max-width: 900px;
+    }
+  }
+
   .record-list li {
     padding: var(--space-2) 0;
     border-bottom: 1px solid rgba(74,44,111,0.2);
@@ -571,11 +578,16 @@
           <span class="record-role">Founder, Seniors Meal Delivery Program, The Fig Bistro</span>
           <span class="record-years">2020–2021</span>
         </li>
-             <li>
-          <span class="record-role">Participant, Dancing with the Vernon Stars, over $6,000 raised for Vernon Hospice House
-Organizer,<br> Folks On Spokes breakfast & lunch program, with the City of Vernon Community Safety Office and Vernon Upper Room Mission
-Lead Organizer, <br> Heidi Bannick Day memorial fundraiser, $7,139 raised for a family in need
-</span>
+        <li>
+          <span class="record-role">Participant, Dancing with the Vernon Stars</span>
+          <span class="record-years">$6,000+ for Vernon Hospice House</span>
+        </li>
+        <li>
+          <span class="record-role">Organizer, Folks On Spokes breakfast &amp; lunch program &mdash; with the City of Vernon Community Safety Office and Vernon Upper Room Mission</span>
+        </li>
+        <li>
+          <span class="record-role">Lead Organizer, Heidi Bannick Day memorial fundraiser</span>
+          <span class="record-years">$7,139 for a family in need</span>
         </li>
       </ul>
     </div>
