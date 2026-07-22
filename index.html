@@ -327,6 +327,15 @@
     font-size: 0.95rem;
   }
 
+  /* Honeypot spam-trap field: hidden from humans, left in the DOM for bots. */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   .signup-form input[type="email"] {
     width: 100%;
     padding: 0.9em 1em;
@@ -548,10 +557,42 @@
       <h2 class="section-title">Stay in the loop</h2>
       <p class="signup-copy">Get campaign updates, event invites, and ways to help — straight to your inbox.</p>
 
-      <!-- REPLACE FORMSPREE_ID with your real Formspree form ID, e.g. https://formspree.io/f/abcdwxyz -->
-      <form class="signup-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+      <!-- ============================================================
+           EMAIL SIGNUP FORM — BREVO-READY
+           ------------------------------------------------------------
+           This form has NO JavaScript so the page stays fast. To connect it:
+
+           1. Sign up free at brevo.com and go to Contacts > Forms.
+           2. Create a Subscription form. On the final "Share" step, pick the
+              "simple HTML" option (NOT the iframe / JavaScript embed).
+           3. From the code Brevo gives you, copy TWO things:
+                a) the form's action URL  -> paste it into action="" below
+                b) the email field's name -> it's usually EMAIL. If Brevo uses
+                   something different, rename the input's name="EMAIL" to match.
+           4. Set your thank-you redirect: replace the value of the hidden
+              "email_address_check" is the spam honeypot (leave it exactly as is).
+
+           NOTE: With plain HTML (no JS), Brevo can't show an inline success
+           message, so we redirect to thank-you.html instead (see hidden field).
+           ============================================================ -->
+
+      <!-- REPLACE the action URL with your Brevo "simple HTML" form action URL -->
+      <form class="signup-form" action="https://REPLACE-WITH-YOUR-BREVO-FORM-ACTION-URL" method="POST">
         <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <!-- If Brevo names the field something other than EMAIL, update name="EMAIL" -->
+        <input type="email" id="email" name="EMAIL" placeholder="you@example.com" required autocomplete="email">
+
+        <!-- Honeypot spam trap: Brevo uses this field name. Bots fill it; humans don't.
+             Keep it visually hidden and empty. DO NOT remove. -->
+        <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field">
+
+        <!-- After submit, send the person to your thank-you page.
+             Brevo's plain-HTML forms support a redirect field; confirm the exact
+             field name in your form's code. It is commonly one of these — keep the
+             one Brevo generates and delete the other:
+             REPLACE-WITH-YOUR-DOMAIN with your live domain. -->
+        <input type="hidden" name="redirect_url" value="https://REPLACE-WITH-YOUR-DOMAIN/thank-you.html">
+
         <button type="submit">Sign up</button>
       </form>
 
