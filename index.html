@@ -235,7 +235,7 @@
 
   /* ---------- Generic section spacing ---------- */
   section {
-    padding: var(--space-5) 0;
+    padding: var(--space-4) 0;
   }
   @media (min-width: 860px) {
     section {
@@ -255,6 +255,11 @@
     max-width: 65ch;
     margin: 0 auto;
     font-size: 1.05rem;
+  }
+  /* Remove the paragraph's default top/bottom margin so it doesn't
+     stack on top of the section padding (which caused uneven spacing). */
+  .about-body p {
+    margin: 0;
   }
 
   /* Desktop: give the bio more width so it isn't a narrow column. */
@@ -664,7 +669,7 @@
     <div class="container">
       <h2 class="section-title">Get Involved</h2>
       <p class="involved-lead">
-        Want to help? David would love to hear from you, whether you want a sign on your lawn,
+        Want to help? David would love to hear from you &ndash; whether you want a sign on your lawn,
         a few hours to help out at an event, to chip in, or you just have a question about where he stands.
       </p>
 
