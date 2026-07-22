@@ -91,6 +91,45 @@
     text-align: center;
   }
 
+  /* Mobile: stacked & centered (default).
+     Desktop: photo left, text right, everything above the fold. */
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-text {
+    width: 100%;
+  }
+
+  @media (min-width: 860px) {
+    .hero {
+      padding: var(--space-5) 0;
+    }
+    .hero-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-5);
+      text-align: left;
+    }
+    .hero-photo-placeholder {
+      flex: 0 0 45%;
+      max-width: 45%;
+      margin: 0;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    /* Left-align the text-block elements that were centered on mobile */
+    .hero-text .hero-tagline {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .hero-text .name-last {
+      padding-left: 0;
+    }
+  }
+
   /*
     CANDIDATE PHOTO PLACEHOLDER
     Replace this div with a real <img> tag, e.g.:
@@ -373,26 +412,31 @@
        ============================================================ -->
   <section class="hero" id="top">
     <div class="container">
+      <div class="hero-inner">
 
-      <!-- REPLACE: swap this placeholder div for a real <img> of David.
-           Suggested source size: 1600x1000px, compressed JPG. -->
-      <div class="hero-photo-placeholder" role="img" aria-label="Placeholder for candidate photo of David Scarlatescu">
-        <!-- PHOTO PLACEHOLDER: 1600x1000px recommended, replace with <img src="..." alt="David Scarlatescu, candidate for Vernon City Council"> -->
-        [ Candidate photo — 1600x1000px ]
+        <!-- REPLACE: swap this placeholder div for a real <img> of David.
+             On desktop this sits on the LEFT. Suggested source size: 1600x1000px, compressed JPG. -->
+        <div class="hero-photo-placeholder" role="img" aria-label="Placeholder for candidate photo of David Scarlatescu">
+          <!-- PHOTO PLACEHOLDER: 1600x1000px recommended, replace with <img src="..." alt="David Scarlatescu, candidate for Vernon City Council"> -->
+          [ Candidate photo — 1600x1000px ]
+        </div>
+
+        <div class="hero-text">
+          <h1 class="name-treatment">
+            <span class="name-first">DAVID</span>
+            <span class="name-last">SCARLATESCU</span>
+          </h1>
+
+          <p class="hero-office">For Vernon City Council</p>
+          <p class="hero-date">Vote October 17, 2026</p>
+
+          <!-- REPLACE: one-line tagline -->
+          <p class="hero-tagline"><!-- TAGLINE HERE --> A steady hand and a clear voice for the Vernon we're building together.</p>
+
+          <a class="btn" href="#signup">Join the campaign</a>
+        </div>
+
       </div>
-
-      <h1 class="name-treatment">
-        <span class="name-first">DAVID</span>
-        <span class="name-last">SCARLATESCU</span>
-      </h1>
-
-      <p class="hero-office">For Vernon City Council</p>
-      <p class="hero-date">Vote October 17, 2026</p>
-
-      <!-- REPLACE: one-line tagline -->
-      <p class="hero-tagline"><!-- TAGLINE HERE --> A steady hand and a clear voice for the Vernon we're building together.</p>
-
-      <a class="btn" href="#signup">Join the campaign</a>
     </div>
   </section>
 
