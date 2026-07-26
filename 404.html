@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="robots" content="noindex">
+
+<title>Page not found | David Scarlatescu for Vernon City Council</title>
+<meta name="description" content="That page couldn't be found. David Scarlatescu is running for Vernon City Council — vote October 17, 2026.">
+
+<!-- FAVICON — same file as index.html. Add /favicon.ico to your site root. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+<style>
+  :root {
+    --purple: #4A2C6F;
+    --white: #FFFFFF;
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2.5rem;
+    --space-5: 4rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--white);
+    background: var(--purple);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .notfound {
+    max-width: 44ch;
+  }
+
+  /* Name treatment — matches the hero on index.html */
+  .name-treatment {
+    margin: 0 0 var(--space-4);
+    line-height: 0.95;
+  }
+  .name-first {
+    display: block;
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .name-last {
+    display: block;
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    margin-top: var(--space-2);
+    padding-left: 0.3em; /* optical correction for tracking */
+  }
+
+  .notfound-code {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin: 0 0 var(--space-1);
+  }
+
+  .notfound-heading {
+    font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+    font-weight: 800;
+    margin: 0 0 var(--space-2);
+    white-space: nowrap;
+  }
+
+  .notfound-copy {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.92);
+    margin: 0 0 var(--space-4);
+  }
+
+  .notfound-date {
+    font-weight: 700;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.9em 2em;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    border: 2px solid var(--white);
+  }
+  .btn:hover, .btn:focus {
+    background: transparent;
+    color: var(--white);
+  }
+</style>
+</head>
+<body>
+
+  <main class="notfound">
+    <p class="name-treatment">
+      <span class="name-first">DAVID</span>
+      <span class="name-last">SCARLATESCU</span>
+    </p>
+
+    <p class="notfound-code">Error 404</p>
+    <h1 class="notfound-heading">This page took a wrong turn.</h1>
+
+    <p class="notfound-copy">
+      We couldn't find the page you were looking for, but David is still
+      running for Vernon City Council. <span class="notfound-date">Vote October 17, 2026.</span>
+    </p>
+
+    <!-- Back to the homepage.
+         On the GitHub project URL this must include the repo path.
+         WHEN THE DOMAIN GOES LIVE, you can change this to just "/" -->
+    <a class="btn" href="https://kpasciullo.github.io/davidscarlatescu/">Go to the homepage</a>
+  </main>
+
+</body>
+</html>
