@@ -700,31 +700,63 @@
     <div class="container">
       <h2 class="section-title">Get Involved</h2>
       <p class="involved-lead">
-        Want to help? David would love to hear from you, whether you want a sign on your lawn,
+        Want to help? David would love to hear from you &ndash; whether you want a sign on your lawn,
         a few hours to help out at an event, to chip in, or you just have a question about where he stands.
       </p>
 
-      <!-- The form itself has no "action"; the script builds a mailto link on submit. -->
-      <form class="involved-form" id="involved-form">
+      <!-- ============================================================
+           WEB3FORMS SUBMISSION FORM
+           ------------------------------------------------------------
+           Submissions are emailed to David. No JavaScript needed.
+
+           SETUP (one step):
+           1. Go to web3forms.com, enter David's email
+              (davidforvernon@gmail.com), and they email you an
+              ACCESS KEY (a long code like 1a2b3c4d-...).
+           2. Paste that key into the value="" of the hidden
+              access_key field below, replacing YOUR_ACCESS_KEY_HERE.
+
+           That's it. Nothing else to configure, no account required.
+
+           NOTE: after submitting, the visitor is sent to thank-you.html
+           (see the hidden "redirect" field). Update that URL when the
+           custom domain goes live.
+           ============================================================ -->
+      <form class="involved-form" id="involved-form" action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- TEMP: Kayla's test key — REPLACE with David's key before launch -->
+        <input type="hidden" name="access_key" value="c4adf8f0-a776-48e8-bc7c-fd2c5a5ebd3e">
+
+        <!-- Subject line of the email David receives -->
+        <input type="hidden" name="subject" value="New message from davidscarlatescu.com">
+        <input type="hidden" name="from_name" value="David Scarlatescu Campaign Website">
+
+        <!-- After submitting, send the visitor to the thank-you page.
+             UPDATE THIS URL when the custom domain goes live:
+             https://www.davidscarlatescu.com/thank-you.html -->
+        <input type="hidden" name="redirect" value="https://kpasciullo.github.io/davidscarlatescu/thank-you.html">
+
+        <!-- Honeypot spam trap: hidden from people, bots fill it in. Leave empty. -->
+        <input type="checkbox" name="botcheck" class="hp-field" style="display:none;" tabindex="-1" autocomplete="off">
 
         <fieldset>
           <legend>How would you like to help?</legend>
           <div class="checkbox-grid">
             <!-- REMOVE any option David doesn't want; ADD more <label> rows the same way. -->
             <label class="checkbox-row">
-              <input type="checkbox" name="help" value="I'd like a lawn sign">
+              <input type="checkbox" name="How they want to help" value="Lawn sign">
               <span>Put up a lawn sign</span>
             </label>
             <label class="checkbox-row">
-              <input type="checkbox" name="help" value="I'd like to volunteer at events">
+              <input type="checkbox" name="How they want to help" value="Volunteer at events">
               <span>Volunteer at events</span>
             </label>
             <label class="checkbox-row">
-              <input type="checkbox" name="help" value="I'd like to make a donation">
+              <input type="checkbox" name="How they want to help" value="Make a donation">
               <span>Make a donation</span>
             </label>
             <label class="checkbox-row">
-              <input type="checkbox" name="help" value="I just have a question">
+              <input type="checkbox" name="How they want to help" value="Has a question">
               <span>I just have a question</span>
             </label>
           </div>
@@ -732,27 +764,21 @@
 
         <div>
           <label class="field-label" for="from-name">Your name</label>
-          <input type="text" id="from-name" name="name" placeholder="Jane Okanagan" autocomplete="name">
+          <input type="text" id="from-name" name="name" placeholder="Jane Okanagan" autocomplete="name" required>
         </div>
 
         <div>
           <label class="field-label" for="from-email">Your email <span style="font-weight:400;">(so David can reply)</span></label>
-          <input type="email" id="from-email" name="email" placeholder="you@example.com" autocomplete="email">
+          <input type="email" id="from-email" name="email" placeholder="you@example.com" autocomplete="email" required>
         </div>
 
         <div>
           <label class="field-label" for="message">Your message</label>
-          <textarea id="message" name="message" placeholder="Tell David how you'd like to help, or ask a question."></textarea>
+          <textarea id="message" name="message" placeholder="Tell David how you'd like to help, or ask a question." required></textarea>
         </div>
 
         <button type="submit" class="btn">Send message</button>
       </form>
-
-      <!-- REPLACE the email address in this fallback line AND in the script below. -->
-      <p class="involved-note">
-        This opens your email app with your message ready to send. Prefer to email directly?
-        Write to <a href="mailto:davidforvernon@gmail.com">davidforvernon@gmail.com</a>.
-      </p>
     </div>
   </section>
 
@@ -777,59 +803,6 @@
   </div>
 </footer>
 
-<!-- ============================================================
-     SCRIPT — the ONLY JavaScript on the page.
-     Builds a pre-filled email (mailto:) from the form and opens
-     the visitor's email app. No data is sent anywhere else.
-     REPLACE the CAMPAIGN_EMAIL value below with David's real address.
-     ============================================================ -->
-<script>
-  (function () {
-    var CAMPAIGN_EMAIL = "davidforvernon@gmail.com"; // <-- REPLACE with David's real email
-
-    var form = document.getElementById("involved-form");
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Collect the checked "how would you like to help?" options
-      var checked = form.querySelectorAll('input[name="help"]:checked');
-      var helpItems = [];
-      checked.forEach(function (c) { helpItems.push("- " + c.value); });
-
-      var name = (form.querySelector('#from-name').value || "").trim();
-      var email = (form.querySelector('#from-email').value || "").trim();
-      var message = (form.querySelector('#message').value || "").trim();
-
-      // Build the email subject
-      var subject = "Campaign message" + (name ? " from " + name : "");
-
-      // Build the email body
-      var lines = [];
-      if (helpItems.length) {
-        lines.push("How I'd like to help:");
-        lines.push(helpItems.join("\n"));
-        lines.push("");
-      }
-      if (message) {
-        lines.push(message);
-        lines.push("");
-      }
-      if (name)  lines.push("Name: " + name);
-      if (email) lines.push("Email: " + email);
-
-      var body = lines.join("\n");
-
-      // Assemble and open the mailto link
-      var mailto = "mailto:" + CAMPAIGN_EMAIL +
-                   "?subject=" + encodeURIComponent(subject) +
-                   "&body=" + encodeURIComponent(body);
-
-      window.location.href = mailto;
-    });
-  })();
-</script>
 
 </body>
 </html>
