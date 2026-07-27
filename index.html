@@ -12,22 +12,17 @@
 
 <!-- ============================================================
      OPEN GRAPH TAGS — controls how the link looks when shared on
-     Facebook/Instagram/etc. Replace og:url and og:image below.
+     Facebook/Instagram/etc.
      ============================================================ -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="David Scarlatescu for Vernon City Council">
 <meta property="og:description" content="Vote October 17, 2026. A stronger, smarter, more accessible Vernon.">
-<!-- Share image: og-image.jpg lives in the site root.
-     NOTE: OG tags require full absolute URLs (not relative paths).
-     Currently pointed at the GitHub Pages URL for pre-launch sharing.
-     WHEN THE DOMAIN GOES LIVE, change both of these to:
-       https://www.davidscarlatescu.com/og-image.jpg
-       https://www.davidscarlatescu.com/ -->
-<meta property="og:image" content="https://kpasciullo.github.io/davidscarlatescu/og-image.jpg">
+<!-- Share image: og-image.jpg lives in the site root. OG tags require full absolute URLs. -->
+<meta property="og:image" content="https://www.davidscarlatescu.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="David Scarlatescu for Vernon City Council. Vote October 17, 2026.">
-<meta property="og:url" content="https://kpasciullo.github.io/davidscarlatescu/">
+<meta property="og:url" content="https://www.davidscarlatescu.com/">
 <meta property="og:locale" content="en_CA">
 
 <!-- ============================================================
@@ -690,10 +685,9 @@
   <!-- ============================================================
        5. GET INVOLVED
        ------------------------------------------------------------
-       This form opens the visitor's own email app with a pre-filled
-       message to David (a "mailto:" form). No external service, no
-       data stored anywhere except David's inbox. Requires the small
-       script at the bottom of this file.
+       Web3Forms submission form — submissions are emailed to David.
+       No JavaScript needed. After submitting, the visitor is sent to
+       thank-you.html (see the hidden "redirect" field).
        ============================================================ -->
   <section id="involved" class="involved-section">
     <div class="container">
@@ -703,24 +697,6 @@
         a few hours to help out at an event, to chip in, or you just have a question about where he stands.
       </p>
 
-      <!-- ============================================================
-           WEB3FORMS SUBMISSION FORM
-           ------------------------------------------------------------
-           Submissions are emailed to David. No JavaScript needed.
-
-           SETUP (one step):
-           1. Go to web3forms.com, enter David's email
-              (davidforvernon@gmail.com), and they email you an
-              ACCESS KEY (a long code like 1a2b3c4d-...).
-           2. Paste that key into the value="" of the hidden
-              access_key field below, replacing YOUR_ACCESS_KEY_HERE.
-
-           That's it. Nothing else to configure, no account required.
-
-           NOTE: after submitting, the visitor is sent to thank-you.html
-           (see the hidden "redirect" field). Update that URL when the
-           custom domain goes live.
-           ============================================================ -->
       <form class="involved-form" id="involved-form" action="https://api.web3forms.com/submit" method="POST">
 
         <input type="hidden" name="access_key" value="998e22a7-1b0d-4055-a18f-fff49e8781f8">
@@ -729,10 +705,8 @@
         <input type="hidden" name="subject" value="New message from davidscarlatescu.com">
         <input type="hidden" name="from_name" value="David Scarlatescu Campaign Website">
 
-        <!-- After submitting, send the visitor to the thank-you page.
-             UPDATE THIS URL when the custom domain goes live:
-             https://www.davidscarlatescu.com/thank-you.html -->
-        <input type="hidden" name="redirect" value="https://kpasciullo.github.io/davidscarlatescu/thank-you.html">
+        <!-- After submitting, send the visitor to the thank-you page. -->
+        <input type="hidden" name="redirect" value="https://www.davidscarlatescu.com/thank-you.html">
 
         <!-- Honeypot spam trap: hidden from people, bots fill it in. Leave empty. -->
         <input type="checkbox" name="botcheck" class="hp-field" style="display:none;" tabindex="-1" autocomplete="off">
@@ -787,7 +761,6 @@
      ============================================================ -->
 <footer class="site-footer">
   <div class="container">
-    <!-- REPLACE with real campaign contact email -->
     <p class="footer-contact"><a href="mailto:davidforvernon@gmail.com">davidforvernon@gmail.com</a></p>
 
     <ul class="footer-social">
